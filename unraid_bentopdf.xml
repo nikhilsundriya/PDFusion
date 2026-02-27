@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>PDFusion</Name>
+  <Repository>PDFusionteam/PDFusion</Repository>
+  <Registry>https://hub.docker.com/r/PDFusionteam/PDFusion/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/nikhilsundriya/</Support>
+  <Project>https://www.PDFusion.com/</Project>
+  <Overview>Uploaded on behalf of creator: nikhilsundriya&#13;
+PDFusion is a privacy first PDF Toolkit&#13;
+&#13;
+https://hub.docker.com/r/PDFusionteam/PDFusion/</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/nikhilsundriya/PDFusion/refs/heads/main/public/images/favicon.svg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1760606276</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web Port for Nginx and GUI" Target="8080" Default="8080" Mode="tcp" Description="Port used for PDFusion's web GUI" Type="Port" Display="always" Required="false" Mask="false">80</Config>
+  <TailscaleStateDir/>
+</Container>
+

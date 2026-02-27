@@ -1,0 +1,14 @@
+services:
+  PDFusion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SIMPLE_MODE: false # false for default mode, true for simple mode
+    container_name: PDFusion
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+    # For IPv4-only environments
+    #environment:
+    #  - DISABLE_IPV6=true

@@ -1,0 +1,16 @@
+services:
+  PDFusion:
+    # GitHub Container Registry (Recommended)
+    # simple mode - ghcr.io/nikhilsundriya/PDFusion-simple:latest
+    # default mode - ghcr.io/nikhilsundriya/PDFusion:latest
+    # Docker Hub (Alternative)
+    # simple mode - PDFusionteam/PDFusion-simple:latest
+    # default mode - PDFusionteam/PDFusion:latest
+    image: ghcr.io/nikhilsundriya/PDFusion-simple:latest
+    container_name: PDFusion
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+    # For IPv4-only environments
+    #environment:
+    #  - DISABLE_IPV6=true
