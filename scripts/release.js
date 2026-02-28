@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const packageJsonPath = path.join(__dirname, '../package.json');
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+
+function getCurrentVersion() {
+  return packageJson.version;
+}
+
+function updateVersion(type) {
+  const currentVersion = getCurrentVersion();
+  const [major, minor, patch] = currentVersion.split('.').map(Number);
+
+  let newVersion;
+  switch (type) {
+    case 'major':
+      newVersion = `${major + 1}.0.0`;
+      break;
+    case 'minor':
+      newVersion = `${major}.${minor + 1}.0`;
+      break;
+    case 'patch':
+    default:
+      newVersion = `${major}.${minor}.${patch + 1}`;
+      break;
+  }
+
+  packageJson.version = newVersion;
+  fs.writeFileSync(
+    packageJsonPath,
+    JSON.stringify(packageJson, null, 2) + '\n'
+  );
+  return newVersion;
+}
+
+function createGitTag(version) {
+  const tagName = `v${version}`;
+
+  try {
+    // Check if tag already exists
+    execSync(`git rev-parse "v${version}" >/dev/null 2>&1`, {
+      stdio: 'ignore',
+    });
+    console.log(`✅ Tag v${version} already exists`);
+    return tagName;
+  } catch {
+    // Tag doesn't exist, create it
+    execSync(`git tag -a "v${version}" -m "Release v${version}"`, {
+      stdio: 'inherit',
+    });
+    console.log(`✅ Created tag v${version}`);
+    return tagName;
+  }
+}
+
+function main() {
+  const type = process.argv[2] || 'patch';
+
+  if (!['major', 'minor', 'patch'].includes(type)) {
+    console.error('❌ Invalid version type. Use: major, minor, or patch');
+    process.exit(1);
+  }
+
+  console.log(`🚀 Releasing ${type} version...`);
+
+  // 1. Update version in package.json
+  const newVersion = updateVersion(type);
+  console.log(`📦 Updated version to ${newVersion}`);
+
+  // 2. Update version in HTML files
+  console.log(`📝 Updating version in HTML files...`);
+  execSync('npm run update-version', { stdio: 'inherit' });
+
+  // 3. Add and commit changes
+  execSync('git add package.json *.html src/pages/*.html', {
+    stdio: 'inherit',
+  });
+  execSync(`git commit -m "Release v${newVersion}"`, { stdio: 'inherit' });
+  console.log(`💾 Committed version change`);
+
+  // 4. Create git tag
+  const tagName = createGitTag(newVersion);
+
+  // 5. Build and package the distribution files
+  console.log(`📦 Building and packaging distribution files...`);
+  execSync('npm run package', { stdio: 'inherit' });
+  console.log(`📦 Distribution files packaged successfully`);
+
+  // 6. Push everything to main
+  console.log(`📤 Pushing to main...`);
+  execSync('git push origin main', { stdio: 'inherit' });
+  execSync(`git push origin ${tagName}`, { stdio: 'inherit' });
+
+  console.log(`🎉 Release v${newVersion} complete!`);
+  console.log(`📦 Docker image: PDFusionteam/PDFusion:${newVersion}`);
+  console.log(`📦 Distribution: dist-${newVersion}.zip`);
+  console.log(
+    `🏷️  GitHub release: https://github.com/nikhilsundriya/releases/tag/${tagName}`
+  );
+  console.log(
+    `💡 Download dist-${newVersion}.zip from the release page for self-hosting.`
+  );
+}
+
+main();

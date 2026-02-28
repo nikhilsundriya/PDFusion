@@ -1,0 +1,18 @@
+{
+    "name": "PDFusion CLA",
+    "text": [
+        "Thank you for your contribution to PDFusion!",
+        "",
+        "By signing this CLA, you agree to the terms of our Contributor License Agreement.",
+        "",
+        "**Individual Contributors**: Please review and sign our [Individual CLA (ICLA)](ICLA.md)",
+        "",
+        "**Corporate Contributors**: If you are contributing on behalf of your employer, please have your organization sign our [Corporate CLA (CCLA)](CCLA.md) by contacting nikhilchoudhary2508@gmail.com"
+    ],
+    "notes": {
+        "purpose": "This CLA enables PDFusion's dual licensing model (AGPL-3.0 + commercial license)",
+        "icla_url": "https://github.com/nikhilsundriya/blob/main/ICLA.md",
+        "ccla_url": "https://github.com/nikhilsundriya/blob/main/CCLA.md",
+        "contact": "nikhilchoudhary2508@gmail.com"
+    }
+}
