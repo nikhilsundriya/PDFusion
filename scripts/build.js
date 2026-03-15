@@ -8,7 +8,6 @@ const outputDir = path.join(__dirname, '../dist/js');
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
-
 function processFile(filePath) {
   const relativePath = path.relative(sourceDir, filePath);
   const outputPath = path.join(outputDir, relativePath);
