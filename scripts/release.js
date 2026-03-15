@@ -14,7 +14,6 @@ const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 function getCurrentVersion() {
   return packageJson.version;
 }
-
 function updateVersion(type) {
   const currentVersion = getCurrentVersion();
   const [major, minor, patch] = currentVersion.split('.').map(Number);
