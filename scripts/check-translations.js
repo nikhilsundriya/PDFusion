@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /**
  * Translation Checker for PDFusion
  * 
