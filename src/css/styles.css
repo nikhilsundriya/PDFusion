@@ -93,7 +93,6 @@ body {
   color: #ffffff;
   text-align: left;
 }
-
 .category-group:first-child .category-header {
   margin-top: 0;
 }
@@ -210,8 +209,6 @@ input[type='file']::file-selector-button {
   background: #4338ca;
   /* indigo-700 */
 }
-
-/* Style for drag-and-drop placeholder */
 .sortable-ghost {
   opacity: 0.4;
   border: 2px dashed #4f46e5;
@@ -245,7 +242,6 @@ input[type='file']::file-selector-button {
   background-color: #111111;
 }
 
-/* This rule now ONLY applies to canvases in overlay mode */
 .compare-viewer-wrapper.overlay-mode canvas {
   position: absolute;
   top: 0;
@@ -270,7 +266,6 @@ input[type='file']::file-selector-button {
   background-color: #111111;
 }
 
-/* This rule ensures canvases in side-by-side panels display at their natural rendered size. */
 .pdf-panel canvas {
   display: block;
   margin: 0 auto;
