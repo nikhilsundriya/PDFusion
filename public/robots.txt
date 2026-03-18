@@ -1,6 +1,5 @@
 # PDFusion Robots.txt
 # https://www.PDFusion.com
-
 # Allow all crawlers
 User-agent: *
 Allow: /
