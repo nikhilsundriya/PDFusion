@@ -28,8 +28,8 @@ npx wrangler secret put CPDF_SOURCE -c wasm-wrangler.toml
 
 **Recommended Source URLs:**
 
-- PYMUPDF_SOURCE: `https://cdn.jsdelivr.net/npm/@PDFusion/pymupdf-wasm@0.11.16/`
-- GS_SOURCE: `https://cdn.jsdelivr.net/npm/@PDFusion/gs-wasm/assets/`
+- PYMUPDF_SOURCE: `https://cdn.jsdelivr.net/npm/@bentopdf/pymupdf-wasm@0.11.16/`
+- GS_SOURCE: `https://cdn.jsdelivr.net/npm/@bentopdf/gs-wasm/assets/`
 - CPDF_SOURCE: `https://cdn.jsdelivr.net/npm/coherentpdf/dist/`
 
 > **Note:** You can use your own hosted WASM files instead of the recommended URLs. Just ensure your files match the expected directory structure and file names that PDFusion expects for each module.
