@@ -25,11 +25,11 @@ compatibility_date = "2024-01-01"
 # Set these as secrets in the Cloudflare dashboard or via wrangler:
 #
 # PYMUPDF_SOURCE: Base URL to PyMuPDF WASM files
-#   Example: https://cdn.jsdelivr.net/npm/@PDFusion/pymupdf-wasm/assets
+#   Example: https://cdn.jsdelivr.net/npm/@bentopdf/pymupdf-wasm/assets
 #            https://your-bucket.r2.cloudflarestorage.com/pymupdf
 #
 # GS_SOURCE: Base URL to Ghostscript WASM files
-#   Example: https://cdn.jsdelivr.net/npm/@PDFusion/gs-wasm/assets
+#   Example: https://cdn.jsdelivr.net/npm/@bentopdf/gs-wasm/assets
 #            https://your-bucket.r2.cloudflarestorage.com/gs
 #
 # CPDF_SOURCE: Base URL to CoherentPDF files
