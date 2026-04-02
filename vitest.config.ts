@@ -1,17 +1,13 @@
 import { defineConfig } from 'vitest/config';
 import { resolve } from 'path';
-
 export default defineConfig({
   test: {
     // Enable global test APIs (describe, it, expect, etc.)
     globals: true,
-
     // Simulate browser environment
     environment: 'jsdom',
-
     // Setup files to run before tests
     setupFiles: ['./src/tests/setup.ts'],
-
     // Coverage configuration
     coverage: {
       provider: 'v8',
@@ -35,7 +31,6 @@ export default defineConfig({
         statements: 80,
       },
     },
-
     // Include/exclude patterns
     include: ['src/**/*.{test,spec}.{js,ts}'],
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
