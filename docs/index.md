@@ -1,7 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
   name: "PDFusion"
   text: "Free, Open-Source PDF Tools"
