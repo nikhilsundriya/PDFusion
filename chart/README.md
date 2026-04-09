@@ -1,5 +1,4 @@
 # PDFusion Helm Chart
-
 Deploys **PDFusion** as a **single NGINX container** serving the static frontend.
 
 ## Quickstart
