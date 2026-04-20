@@ -4,7 +4,6 @@
  * Supports both local and CDN delivery with deduplication
  * Version: 1.1.0
  */
-
 const CACHE_VERSION = 'PDFusion-v10';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
