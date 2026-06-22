@@ -1020,7 +1020,6 @@ PDFusion was originally built using **HTML**, **CSS**, and **vanilla JavaScript*
 Contributions and discussions on the roadmap are welcome! Join the conversation via [Discord](#).
 
 ---
-
 ## 🤝 Contributing
 
 We welcome contributions from the community! Here's how you can get started:
